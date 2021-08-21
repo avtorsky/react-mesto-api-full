@@ -1,0 +1,10 @@
+.popup-open {
+  background-color: rgba(0, 0, 0, .9);
+  padding: 0px 232px 0px 232px;
+}
+
+@media screen and (max-width: 768px) {
+  .popup-open {
+    padding: 0px 40px 0px 40px;
+  }
+}

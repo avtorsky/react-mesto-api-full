@@ -1,0 +1,9 @@
+.popup-delete {
+  padding: 195px 425px 0px 425px;
+}
+
+@media screen and (max-width: 768px) {
+  .popup-delete {
+    padding: 123px 19px 0px 19px;
+  }
+}

@@ -1,0 +1,19 @@
+.form-add__input {
+  color: #000000;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+.form-add__input::placeholder {
+  color: rgba(0,0,0,.8);
+  font-size: 14px;
+  line-height: 1.21;
+}
+
+.form-add__input:required {
+  box-shadow: none;
+}
+
+.form-add__input:focus {
+  outline: none;
+}

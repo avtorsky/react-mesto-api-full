@@ -1,0 +1,23 @@
+.navmenu__element {
+  margin: 0;
+  align-self: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  padding: 0;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity .4s;
+}
+
+.navmenu__element:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 768px) {
+  .navmenu__element {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

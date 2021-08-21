@@ -1,0 +1,13 @@
+.form-add {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .form-add {
+    padding: 10px 0px;
+  }
+}

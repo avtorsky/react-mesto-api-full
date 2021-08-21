@@ -1,0 +1,14 @@
+.form-avatar-edit__save-btn {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  transition: backgroud-color .1s ease;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 2px;
+  background-color: #000000;
+}
+
+.form-avatar-edit__save-btn:hover {
+  background-color: rgba(0,0,0,.8);
+}

@@ -1,0 +1,8 @@
+.navmenu__content {
+  margin: 0;
+  padding: 20px 0 40px 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
