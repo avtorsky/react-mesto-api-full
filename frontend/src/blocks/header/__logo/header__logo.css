@@ -1,0 +1,16 @@
+.header__logo {
+  position: relative;
+  width: 142px;
+  height: 33px;
+  align-self: center;
+  margin: 0;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .header__logo {
+    width: 104px;
+    height: 25px;
+    padding-left: 27px;
+  }
+}

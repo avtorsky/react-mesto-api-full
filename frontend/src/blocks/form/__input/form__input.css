@@ -1,0 +1,22 @@
+.form__input {
+  position: relative;
+  height: 27px;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.21;
+}
+
+.form__input:required {
+  box-shadow: none;
+}
+
+.form__input:invalid {
+  color: #c4c4c4;
+}
+
+@media screen and (max-width: 768px) {
+  .form__input {
+    margin-bottom: 25px;
+  }
+}

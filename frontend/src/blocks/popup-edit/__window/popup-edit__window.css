@@ -1,0 +1,19 @@
+.popup-edit__window {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-width: 430px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  max-width: 430px;
+  padding: 34px 36px 37px 36px;
+}
+
+@media screen and (max-width: 768px) {
+  .popup-edit__window {
+    min-width: 282px;
+    padding: 25px 22px 25px 22px;
+  }
+}

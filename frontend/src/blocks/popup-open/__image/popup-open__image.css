@@ -1,0 +1,13 @@
+.popup-open__image {
+  position: relative;
+  object-fit: contain;
+  max-width: 816px;
+  max-height: 540px;
+}
+
+@media screen and (max-width: 768px) {
+  .popup-open__image {
+    max-width: 282px;
+    max-height: 450px;
+  }
+}

@@ -1,0 +1,7 @@
+.navmenu__element_btn {
+  font-weight: normal;
+  color: rgba(255,255,255,.4);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}

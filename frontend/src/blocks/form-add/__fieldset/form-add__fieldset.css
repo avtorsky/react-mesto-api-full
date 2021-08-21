@@ -1,0 +1,15 @@
+.form-add__fieldset {
+  width: 358px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .form-add__fieldset {
+    width: 238px;
+  }
+}
