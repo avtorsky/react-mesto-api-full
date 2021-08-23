@@ -1,7 +1,7 @@
 {
   "name": "react-mesto-api-full",
   "version": "1.0.0",
-  "description": "Deploy build for /react-mesto-api-full backend",
+  "description": "backend deploy for /react-mesto-api-full single page demo",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -33,9 +33,11 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-rate-limit": "^5.3.0",
+    "express-winston": "^4.1.0",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.4",
-    "validator": "^13.6.0"
+    "validator": "^13.6.0",
+    "winston": "^3.3.3"
   }
 }

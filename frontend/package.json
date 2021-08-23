@@ -1,7 +1,7 @@
 {
   "name": "react-mesto-api-full",
   "version": "1.0.0",
-  "description": "Deploy build for /react-mesto-api-full frontend",
+  "description": "frontend deploy for /react-mesto-api-full single page demo",
   "homepage": ".",
   "author": "avtorsky",
   "bugs": {

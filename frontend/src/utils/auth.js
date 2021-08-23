@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = 'https://api.mesto.avtorskydeployed.online';
 
 export const handleResponse = (res) => {
   if (res.ok) {
