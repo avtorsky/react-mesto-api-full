@@ -15,6 +15,7 @@ const NotFoundError = require('./errors/not-found');
 const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const { validateUserCredentials } = require('./utils/validation');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -32,6 +33,15 @@ app.use(cookieParser());
 
 mongoose.connect('mongodb://localhost:27017/mestodb', mongooseConfig);
 
+app.use(requestLogger);
+
+// temporary crash test hardcode
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.post('/signup', validateUserCredentials, createUser);
 app.post('/signin', validateUserCredentials, login);
 
@@ -40,6 +50,7 @@ app.use(auth);
 app.use('/users', usersRouter);
 app.use('/cards', cardsRouter);
 
+app.use(errorLogger);
 app.use((req, res, next) => {
   next(new NotFoundError(endpointCastError));
 });

@@ -86,11 +86,9 @@ class Api {
 };
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-24',
+  baseUrl: 'https://api.mesto.avtorskydeployed.online',
   headers: {
-    authorization: '159b35a8-d58e-44ce-a10d-31006f74b905',
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
+    'Content-Type': 'application/json'
   }
 });
 
