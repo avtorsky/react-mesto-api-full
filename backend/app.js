@@ -6,9 +6,10 @@ const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
+const cors = require('cors');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
-const { mongooseConfig } = require('./utils/constants');
+const { mongooseConfig, allowedCors } = require('./utils/constants');
 const serverErrorMiddleware = require('./errors/error-middleware');
 const { endpointCastError, serverThrottlingError } = require('./utils/errors');
 const NotFoundError = require('./errors/not-found');
@@ -24,6 +25,10 @@ const limiter = rateLimit({
   max: 100,
   message: serverThrottlingError,
 });
+
+app.use(cors({
+  origin: allowedCors,
+}));
 
 app.use(helmet());
 app.use(limiter);

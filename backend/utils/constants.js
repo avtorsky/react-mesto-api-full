@@ -16,6 +16,11 @@ const urlRegExp = (value) => {
 const codeStatusOk = 200;
 const codeStatusCreated = 201;
 
+const allowedCors = [
+  'https://mesto.avtorskydeployed.online',
+  'http://mesto.avtorskydeployed.online',
+];
+
 module.exports = {
   minLengthValue,
   maxLengthValue,
@@ -24,4 +29,5 @@ module.exports = {
   mongooseConfig,
   codeStatusOk,
   codeStatusCreated,
+  allowedCors,
 };

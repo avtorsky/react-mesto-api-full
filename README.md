@@ -14,6 +14,10 @@ Developed under the [Practicum](https://practicum.yandex.com/web/) online bootca
 * Git, NPM, PM2, Nginx
 
 ## Changelog
+Release 20210824:
+* fix(backend/app.js): CORS configuration
+* ci: server public IPv4 is now static
+
 Release 20210823:
 * feat(backend/middlewares/logger.js): enable logging via Winston
 * fix(frontend/src/utils/api.js): API host settings update
@@ -25,7 +29,7 @@ Release 20210822:
 ## Environment
 * Production release: <a href="https://mesto.avtorskydeployed.online" target="_blank">https://mesto.avtorskydeployed.online</a>
 * API host: <a href="https://api.mesto.avtorskydeployed.online" target="_blank">https://api.mesto.avtorskydeployed.online</a>
-* Server public IPv4: 84.252.142.180
+* Server public IPv4: 84.201.167.17
 
 ## Contact
 __GitHub:__ <a href="https://github.com/avtorsky" target="_blank">https://github.com/avtorsky</a>
