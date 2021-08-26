@@ -26,8 +26,11 @@ const limiter = rateLimit({
   message: serverThrottlingError,
 });
 
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb', mongooseConfig);
+
 app.use(cors({
   origin: allowedCors,
+  credentials: true,
 }));
 
 app.use(helmet());
@@ -35,8 +38,6 @@ app.use(limiter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-
-mongoose.connect('mongodb://localhost:27017/mestodb', mongooseConfig);
 
 app.use(requestLogger);
 

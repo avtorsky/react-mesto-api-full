@@ -16,7 +16,8 @@ class Api {
   getUserInfo() {
     return fetch(`${this.baseUrl}/users/me`, {
       method: 'GET',
-      headers: this.headers
+      headers: this.headers,
+      credentials: 'include',
     })
       .then(this._handleResponse);
   };
@@ -25,6 +26,7 @@ class Api {
     return fetch(`${this.baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this.headers,
+      credentials: 'include',
       body: JSON.stringify({
         name: name,
         about: status,
@@ -37,6 +39,7 @@ class Api {
     return fetch(`${this.baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this.headers,
+      credentials: 'include',
       body: JSON.stringify({
         avatar: link
       })
@@ -47,7 +50,8 @@ class Api {
   getInitialCards() {
     return fetch(`${this.baseUrl}/cards`, {
       method: 'GET',
-      headers: this.headers
+      headers: this.headers,
+      credentials: 'include',
     })
       .then(this._handleResponse);
   };
@@ -56,6 +60,7 @@ class Api {
     return fetch(`${this.baseUrl}/cards`, {
       method: 'POST',
       headers: this.headers,
+      credentials: 'include',
       body: JSON.stringify({
         name: name,
         link: link
@@ -67,7 +72,8 @@ class Api {
   deleteCard(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}`, {
       method: 'DELETE',
-      headers: this.headers
+      headers: this.headers,
+      credentials: 'include',
     })
       .then(this._handleResponse);
   };
@@ -75,7 +81,8 @@ class Api {
   changeLikeCardStatus(cardId, setLike) {
     return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
       method: setLike ? 'PUT' : 'DELETE',
-      headers: this.headers
+      headers: this.headers,
+      credentials: 'include',
     })
       .then(this._handleResponse);
   };
@@ -88,7 +95,8 @@ class Api {
 const api = new Api({
   baseUrl: 'https://api.mesto.avtorskydeployed.online',
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
   }
 });
 

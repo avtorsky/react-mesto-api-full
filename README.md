@@ -14,9 +14,8 @@ Developed under the [Practicum](https://practicum.yandex.com/web/) online bootca
 * Git, NPM, PM2, Nginx
 
 ## Changelog
-Release 20210824:
+Release 20210826:
 * fix(backend/app.js): CORS configuration
-* ci: server public IPv4 is now static
 
 Release 20210823:
 * feat(backend/middlewares/logger.js): enable logging via Winston
