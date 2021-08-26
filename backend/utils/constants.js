@@ -18,7 +18,7 @@ const codeStatusCreated = 201;
 
 const allowedCors = [
   'https://mesto.avtorskydeployed.online',
-  'http://mesto.avtorskydeployed.online',
+  'http://localhost:3000',
 ];
 
 module.exports = {
