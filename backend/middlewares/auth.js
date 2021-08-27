@@ -1,17 +1,17 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const { userAuthError, endpointAuthError } = require('../utils/errors');
 const UnauthorizedError = require('../errors/unauthorized');
 const ForbiddenError = require('../errors/forbidden');
 
 module.exports = (req, res, next) => {
-  const { authorization } = req.headers;
+  const { token } = req.cookies;
   const { NODE_ENV, JWT_SECRET } = process.env;
 
-  if (!authorization || !authorization.startsWith('Bearer ')) {
+  if (!token) {
     throw new UnauthorizedError(userAuthError);
   }
 
-  const token = authorization.replace('Bearer ', '');
   let payload;
 
   try {

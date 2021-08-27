@@ -9,11 +9,11 @@ const helmet = require('helmet');
 const cors = require('cors');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
-const { mongooseConfig, allowedCors } = require('./utils/constants');
+const { mongooseConfig } = require('./utils/constants');
 const serverErrorMiddleware = require('./errors/error-middleware');
 const { endpointCastError, serverThrottlingError } = require('./utils/errors');
 const NotFoundError = require('./errors/not-found');
-const { createUser, login } = require('./controllers/users');
+const { createUser, login, logout } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const { validateUserCredentials } = require('./utils/validation');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -26,10 +26,10 @@ const limiter = rateLimit({
   message: serverThrottlingError,
 });
 
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb', mongooseConfig);
+mongoose.connect('mongodb://localhost:27017/mestodb', mongooseConfig);
 
 app.use(cors({
-  origin: allowedCors,
+  origin: 'https://mesto.avtorskydeployed.online',
   credentials: true,
 }));
 
@@ -55,6 +55,7 @@ app.use(auth);
 
 app.use('/users', usersRouter);
 app.use('/cards', cardsRouter);
+app.post('/signout', logout);
 
 app.use(errorLogger);
 app.use((req, res, next) => {
