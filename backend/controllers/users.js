@@ -1,3 +1,4 @@
+require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
@@ -7,7 +8,12 @@ const {
   userAuthError,
   userCredentialsError,
 } = require('../utils/errors');
-const { maxAgeValue, codeStatusOk, codeStatusCreated } = require('../utils/constants');
+const {
+  maxAgeValue,
+  codeStatusOk,
+  codeStatusCreated,
+  userLogOut,
+} = require('../utils/constants');
 const BadRequestError = require('../errors/bad-request');
 const UnauthorizedError = require('../errors/unauthorized');
 const NotFoundError = require('../errors/not-found');
@@ -123,17 +129,21 @@ const login = (req, res, next) => {
         { expiresIn: '7d' });
       res
         .status(codeStatusOk)
-        .cookie('jwt', token, {
+        .cookie('token', token, {
           httpOnly: true,
           maxAge: maxAgeValue,
           secure: true,
           sameSite: 'none',
         })
-        .send({ token });
+        .send(user.toJSON());
     })
     .catch(() => {
       next(new UnauthorizedError(userAuthError));
     });
+};
+
+const logout = (req, res) => {
+  res.clearCookie('token').send({ message: userLogOut });
 };
 
 module.exports = {
@@ -143,4 +153,5 @@ module.exports = {
   updateUser,
   updateAvatar,
   login,
+  logout,
 };

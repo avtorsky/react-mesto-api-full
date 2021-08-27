@@ -144,38 +144,15 @@ function App() {
       });
   };
 
-  function handleTokenCheck() {
-    const token = localStorage.getItem('token');
-    if (token) {
-      auth.checkToken(token)
-        .then((res) => {
-          if (res) {
-            setAuthState({
-              loggedIn: true,
-              email: res.data.email
-            });
-            history.push('/');
-          }
-        })
-        .catch(err => {
-          console.log(`Авторизация невозможна. Ошибка аутентификации JWT-токена ${err}`);
-        });
-    }
-  };
-
   function handleLogin(email, password) {
     setIsProcessing(true);
     auth.authorize(email, password)
-      .then((data) => {
-        if (data.token) {
-          localStorage.setItem('token', data.token);
-          handleTokenCheck();
-          setAuthState((prevState) => ({
-            ...prevState,
-            loggedIn: true
-          }));
-          history.push('/');
-        }
+      .then((res) => {
+        setAuthState({
+          loggedIn: true,
+          email: res.email,
+        });
+        history.push('/');
       })
       .catch((err) => {
         switch (err) {
@@ -195,12 +172,17 @@ function App() {
   };
 
   function handleSignOut() {
-    setAuthState({
-      loggedIn: false,
-      email: null
+    auth.logout()
+    .then(() => {
+      setAuthState({
+        loggedIn: false,
+        email: null,
+      });
+      history.push('/sign-in');
+    })
+    .catch((err) => {
+      console.log(`Завершение сессии не выполнено. Ошибка ${err}`);
     });
-    localStorage.removeItem('token');
-    history.push('/sign-in');
   };
 
   function handleRegister(email, password) {
@@ -231,7 +213,7 @@ function App() {
 
   useEffect(() => {
     setIsLoading(true);
-    handleTokenCheck();
+    // handleTokenCheck();
     api.getInitialData()
       .then(res => {
         const [userData, cardsData] = res;

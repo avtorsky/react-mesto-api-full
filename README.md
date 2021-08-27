@@ -14,6 +14,9 @@ Developed under the [Practicum](https://practicum.yandex.com/web/) online bootca
 * Git, NPM, PM2, Nginx
 
 ## Changelog
+Release 20210828:
+* fix(frontend/src/components/App.js): minor authorization improvements
+
 Release 20210826:
 * fix(backend/app.js): CORS configuration
 

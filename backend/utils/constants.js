@@ -16,10 +16,7 @@ const urlRegExp = (value) => {
 const codeStatusOk = 200;
 const codeStatusCreated = 201;
 
-const allowedCors = [
-  'https://mesto.avtorskydeployed.online',
-  'http://localhost:3000',
-];
+const userLogOut = 'Cессия пользователя завершена.';
 
 module.exports = {
   minLengthValue,
@@ -29,5 +26,5 @@ module.exports = {
   mongooseConfig,
   codeStatusOk,
   codeStatusCreated,
-  allowedCors,
+  userLogOut,
 };
