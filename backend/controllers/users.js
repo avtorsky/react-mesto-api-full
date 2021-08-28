@@ -135,7 +135,7 @@ const login = (req, res, next) => {
           secure: true,
           sameSite: 'none',
         })
-        .send(user.toJSON());
+        .send({ token });
     })
     .catch(() => {
       next(new UnauthorizedError(userAuthError));
